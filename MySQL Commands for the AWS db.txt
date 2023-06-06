@@ -1,0 +1,29 @@
+CREATE TABLE users (
+    id int NOT NULL AUTO_INCREMENT,
+    pid int NOT NULL,
+    username char(50) NOT NULL,
+    password char(50) NOT NULL,
+    PRIMARY KEY (uid),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+CREATE TABLE missions (
+    id int NOT NULL AUTO_INCREMENT,
+    title char(50) NOT NULL,
+    location char(50) NOT NULL,
+    description char(255),
+	date char(6) NOT NULL,
+	timeStart char(5) NOT NULL,
+    timeStop char(5) NOT NULL,
+    userid INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userid) REFERENCES users(id)
+);
+
+SELECT VERSION()
+8.0.32
+
+INSERT INTO missions (title, location, description, date, timeStart, timeStop, userid)
+VALUES("LTU IT Servicedesk","Lulea Techincal University", "Contact Jonathan at 0731112233 for a briefing","052523",
+       "08:00","16:00")
+
